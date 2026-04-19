@@ -1,236 +1,332 @@
-# AQI Visualization
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AQI Visualization</title>
+
+<style>
+:root{
+--bg:#0d1117;
+--card:#161b22;
+--line:#30363d;
+--text:#e6edf3;
+--muted:#8b949e;
+--blue:#58a6ff;
+--green:#3fb950;
+--yellow:#d29922;
+--red:#f85149;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.6;
+padding:30px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+}
+
+.card{
+background:var(--card);
+border:1px solid var(--line);
+padding:25px;
+border-radius:14px;
+margin-bottom:25px;
+}
+
+h1,h2,h3{
+margin-bottom:15px;
+}
+
+h1{
+font-size:42px;
+color:white;
+}
+
+h2{
+font-size:28px;
+color:var(--blue);
+border-bottom:1px solid var(--line);
+padding-bottom:8px;
+margin-top:10px;
+}
+
+h3{
+font-size:22px;
+color:white;
+margin-top:15px;
+}
+
+p{
+margin-bottom:14px;
+color:var(--text);
+}
+
+ul{
+padding-left:22px;
+margin-bottom:14px;
+}
+
+li{
+margin-bottom:8px;
+}
+
+code{
+background:#0b1220;
+padding:3px 7px;
+border-radius:6px;
+}
+
+pre{
+background:#0b1220;
+padding:18px;
+border-radius:10px;
+overflow-x:auto;
+margin-top:12px;
+margin-bottom:15px;
+border:1px solid var(--line);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+margin-bottom:20px;
+}
 
-A data visualization project for exploring monthly **Air Quality Index (AQI)** trends using **Processing** and **Python**.
+th,td{
+border:1px solid var(--line);
+padding:12px;
+text-align:left;
+}
 
-This repository combines:
+th{
+background:#1f2937;
+color:var(--blue);
+}
 
-- an interactive Processing sketch for AQI visualization  
-- Python scripts for cleaning AQI data  
-- a Python-generated heatmap for quick comparison across cities and years  
+.good{color:var(--green);font-weight:bold;}
+.mod{color:var(--yellow);font-weight:bold;}
+.bad{color:var(--red);font-weight:bold;}
 
----
+.footer{
+text-align:center;
+margin-top:40px;
+color:var(--muted);
+}
+</style>
+</head>
 
-## Project Overview
+<body>
 
-The goal of this project is to visualize and compare AQI patterns across different cities and years in a clear, interactive way.
+<div class="container">
 
-The main Processing sketch displays monthly AQI values for:
+<div class="card">
+<h1>AQI Visualization 🌍📊</h1>
+<p>
+Interactive Air Quality Index analytics built with <strong>Processing</strong> and <strong>Python</strong>.
+This project transforms raw AQI data into charts, comparisons, and heatmaps.
+</p>
+</div>
 
-- Los Angeles (2023)  
-- New York (2023)  
-- Los Angeles (2024)  
-- New York (2024)  
+<div class="card">
+<h2>📌 Project Overview</h2>
+<p>
+AQI Visualization helps users compare pollution trends across cities and years using interactive visuals.
+</p>
 
-Users can switch between graph types and datasets to compare air quality trends over time.
+<ul>
+<li>Monthly AQI trend tracking</li>
+<li>City-to-city comparison</li>
+<li>Year-over-year changes</li>
+<li>Interactive graph modes</li>
+<li>Heatmap analytics</li>
+</ul>
+</div>
 
----
+<div class="card">
+<h2>⚙️ Tools Required Before Cloning</h2>
 
-## Features
+<h3>1. Install Git</h3>
+<p>Needed to clone the repository.</p>
+<pre><code>https://git-scm.com/downloads</code></pre>
 
-### Processing Visualization
+<h3>2. Install Python (3.10+ recommended)</h3>
+<p>Needed to run the data scripts.</p>
+<pre><code>https://www.python.org/downloads/</code></pre>
 
-- Interactive AQI chart built in Processing  
-- Toggle between:
-  - **Bar graph**
-  - **Line graph**
-- Switch between city datasets  
-- Hover to inspect AQI values  
-- Optional vertical guide lines  
+<h3>3. Install Processing IDE</h3>
+<p>Needed to run the interactive AQI visualization sketch.</p>
+<pre><code>https://processing.org/download</code></pre>
 
-### AQI Color Categories
+<h3>4. Install VS Code (Optional)</h3>
+<p>Recommended for editing Python / HTML / project files.</p>
+<pre><code>https://code.visualstudio.com/</code></pre>
 
-- Green = Good  
-- Yellow = Moderate  
-- Red = Unhealthy  
+</div>
 
-### Python Data Pipeline
+<div class="card">
+<h2>⬇️ How To Clone This Repository</h2>
 
-- Cleans and filters AQI data  
-- Handles missing AQI values  
-- Exports cleaned CSV files by city and year  
+<h3>Step 1: Open Terminal / Command Prompt</h3>
 
-### Heatmap Visualization
+<h3>Step 2: Run:</h3>
+<pre><code>git clone https://github.com/tgade5452-cloud/AQI_Visualization.git</code></pre>
 
-- Generates a heatmap of AQI values by month  
-- Makes it easier to compare AQI trends across multiple city/year combinations  
+<h3>Step 3: Enter Project Folder</h3>
+<pre><code>cd AQI_Visualization</code></pre>
 
----
+</div>
 
-## Repository Structure
+<div class="card">
+<h2>🐍 Install Python Dependencies</h2>
 
-```text
-AQI_Visualization/
-│
-├── DATA/                           
-├── AQIVisualization.pde            
-├── FloatTable.pde                  
-├── Integrator.pde                  
-├── clean_aqi_data.py               
-├── heatmap_aqi.py                  
-├── aqi_heatmap.png                 
-├── AQIVisualizationPresentation.pptx
-├── CLAUDE.md
-└── README.md
-````
+<p>Run this after entering the repo folder:</p>
 
----
+<pre><code>pip install pandas matplotlib seaborn</code></pre>
 
-## Technologies Used
+<p>If pip fails:</p>
 
-* **Processing**
-* **Python**
-* **pandas**
-* **matplotlib**
-* **seaborn**
-
----
-
-## How It Works
-
-### 1. Clean the Data
-
-Run:
-
-```bash
-python clean_aqi_data.py
-```
-
-This script:
-
-* builds example AQI datasets
-* keeps only Los Angeles and New York data
-* filters to 2023 and 2024
-* fills missing AQI values
-* exports cleaned CSV files
-
----
-
-### 2. Generate the Heatmap
-
-Run:
-
-```bash
-python heatmap_aqi.py
-```
-
-This script:
-
-* loads the cleaned CSV files
-* combines them into one dataset
-* pivots AQI values by city/year and month
-* generates a heatmap image
-
----
-
-### 3. Launch the Interactive Visualization
-
-Open:
-
-```text
-AQIVisualization.pde
-```
-
-Then run it in **Processing**.
-
----
-
-## Controls
-
-Inside the Processing sketch:
-
-| Key | Action                      |
-| --- | --------------------------- |
-| `b` | Switch to bar graph         |
-| `l` | Switch to line graph        |
-| `v` | Toggle vertical guide lines |
-| `1` | Load Los Angeles dataset    |
-| `2` | Load New York dataset       |
-
----
-
-## AQI Categories
-
-| AQI Range | Category  |
-| --------- | --------- |
-| 0–49      | Good      |
-| 50–100    | Moderate  |
-| 101+      | Unhealthy |
-
----
-
-## Example Output
-
-Included file:
-
-```text
-aqi_heatmap.png
-```
-
-Provides a quick comparison of AQI values by:
-
-* city
-* year
-* month
-
----
-
-## Setup Instructions
-
-### Install Python Packages
-
-```bash
-pip install pandas matplotlib seaborn
-```
-
-### Run Python Pipeline
-
-```bash
-python clean_aqi_data.py
-python heatmap_aqi.py
-```
-
-### Install Processing
-
-Download from:
-
-[https://processing.org/download](https://processing.org/download)
-
-Then open:
-
-```text
-AQIVisualization.pde
-```
-
----
-
-## Notes
-
-* Python scripts currently use simulated sample data
-* Can be extended using real AQI APIs such as EPA or OpenAQ
-* You may need to adjust folder path naming (`DATA` vs `data`) depending on OS
-
----
-
-## Future Improvements
-
-* Add more cities
-* Real-time AQI integration
-* Year-over-year trend charts
-* Better zoom and interaction
-* Export charts directly from Processing
-* Pollutant-specific views (PM2.5, NO2, Ozone)
-
----
-
-## Author
-
-Created by **tgade5452-cloud**
-
----
-
-## License
-
-MIT License
-
-```
+<pre><code>python -m pip install pandas matplotlib seaborn</code></pre>
+
+</div>
+
+<div class="card">
+<h2>🚀 Run Python Scripts</h2>
+
+<h3>Clean Data</h3>
+<pre><code>python clean_aqi_data.py</code></pre>
+
+<h3>Create Heatmap</h3>
+<pre><code>python heatmap_aqi.py</code></pre>
+
+</div>
+
+<div class="card">
+<h2>🎮 Run Processing Visualization</h2>
+
+<ol style="padding-left:22px;">
+<li>Open Processing IDE</li>
+<li>Click File → Open</li>
+<li>Select <code>AQIVisualization.pde</code></li>
+<li>Press Run ▶</li>
+</ol>
+
+</div>
+
+<div class="card">
+<h2>⌨️ Controls</h2>
+
+<table>
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>B</td>
+<td>Bar Graph</td>
+</tr>
+
+<tr>
+<td>L</td>
+<td>Line Graph</td>
+</tr>
+
+<tr>
+<td>V</td>
+<td>Toggle Vertical Lines</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Los Angeles Data</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>New York Data</td>
+</tr>
+</table>
+
+</div>
+
+<div class="card">
+<h2>🌫 AQI Levels</h2>
+
+<table>
+<tr>
+<th>Range</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>0 - 50</td>
+<td class="good">Good</td>
+</tr>
+
+<tr>
+<td>51 - 100</td>
+<td class="mod">Moderate</td>
+</tr>
+
+<tr>
+<td>101+</td>
+<td class="bad">Unhealthy</td>
+</tr>
+
+</table>
+</div>
+
+<div class="card">
+<h2>📁 Project Structure</h2>
+
+<pre><code>AQI_Visualization/
+│── DATA/
+│── AQIVisualization.pde
+│── FloatTable.pde
+│── Integrator.pde
+│── clean_aqi_data.py
+│── heatmap_aqi.py
+│── aqi_heatmap.png
+│── README.md
+│── index.html
+</code></pre>
+
+</div>
+
+<div class="card">
+<h2>🔮 Future Improvements</h2>
+
+<ul>
+<li>Live AQI API integration</li>
+<li>More cities</li>
+<li>Machine learning AQI prediction</li>
+<li>Web dashboard version</li>
+<li>Mobile version</li>
+</ul>
+
+</div>
+
+<div class="footer">
+<p>Created by tgade5452-cloud</p>
+<p>MIT License</p>
+</div>
+
+</div>
+
+</body>
+</html>
 ```
