@@ -1,6 +1,6 @@
 <div align="center">
 
-# AQI Visualization 🌍📊
+# AQI Visualization 
 
 ### Interactive Air Quality Index visualization using Processing and Python
 
@@ -64,8 +64,6 @@ It is built to make environmental data easier to understand through visuals inst
 ### Languages
 - Python
 - Processing / Java
-- Markdown
-- HTML in README formatting
 
 ### Libraries
 - pandas
