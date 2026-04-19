@@ -37,12 +37,12 @@ Built with Python using `pandas`, `matplotlib`, and `seaborn`, this version crea
 ```bash
 AQI_Visualization/
 │
-├── AQIVisualization.pde              # Main Processing sketch
-├── FloatTable.pde                    # CSV parsing and table utilities for Processing
-├── Integrator.pde                    # Animation helper for smooth transitions
-├── clean_aqi_data.py                 # Python script to clean and generate AQI CSV files
-├── heatmap_aqi.py                    # Python script to generate AQI heatmap
-├── aqi_heatmap.png                   # Generated sample heatmap image
-├── AQIVisualizationPresentation.pptx # Project presentation
-├── CLAUDE.md                         # Internal project notes / development guidance
-└── DATA/ or data/                    # AQI CSV datasets
+├── AQIVisualization.pde              
+├── FloatTable.pde                    
+├── Integrator.pde                    
+├── clean_aqi_data.py                
+├── heatmap_aqi.py                    
+├── aqi_heatmap.png                   
+├── AQIVisualizationPresentation.pptx 
+├── CLAUDE.md                        
+└── DATA/ or data/                    
